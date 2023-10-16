@@ -1,7 +1,15 @@
 let formulario = document.querySelector("form");
 
-let listaUsers = [];
-localStorage.setItem("listaUsers", JSON.stringify(listaUsers));
+let listaUsers =[];
+if (!localStorage.getItem("listaUsers")){
+   
+   localStorage.setItem("listaUsers", JSON.stringify(listaUsers));
+};
+
+
+
+
+
 
 formulario.addEventListener("submit", function(event) {
 	event.preventDefault();
@@ -17,10 +25,10 @@ formulario.addEventListener("submit", function(event) {
 
 
     let usuario ={
-        nombre:`${nombre}`,
-        email:`${email}`, 
-        mensaje: `${mesaje}`, 
-        imagen:`${imagen}`
+        nombre: nombre,
+        email: email, 
+        mensaje: mesaje, 
+        imagen: imagen
     }
     
     let nuevoUser = JSON.parse(localStorage.getItem("listaUsers"));
